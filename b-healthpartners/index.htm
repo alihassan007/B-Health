@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Commande">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>BHEALTH</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/creative.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="apppi.js"></script>
+
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a style="color: #191970" class="navbar-brand js-scroll-trigger" href="https://www.bhealthapparel.com/">B-HEALTH</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a style="color: #191970" class="nav-link js-scroll-trigger" href="https://www.bhealthapparel.com/collections/classic-fit-top" target="_blank">Women's Tops</a>
+            </li>
+            <li class="nav-item">
+              <a style="color: #191970" class="nav-link js-scroll-trigger" href="https://www.bhealthapparel.com/collections/classic-fit-pant" target="_blank">Women's Bottoms</a>
+            </li>
+           
+            <li class="nav-item">
+              <a style="color: #191970" class="nav-link js-scroll-trigger" href="https://www.bhealthapparel.com/pages/customer-care" target="_blank">Customer Care</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="masthead">
+      <div class="header-content">
+        <div class="header-content-inner">
+          <h1 style="color: #191970" id="homeHeading">Thank You for Choosing The<br> B-HEALTH</h1>
+          
+          <p style="color: #191970">Please Click Next To Place Your Order:</p>
+          <a style="background-color: #191970" class="btn btn-primary btn-xl js-scroll-trigger" href="#about">NEXT</a>
+        </div>
+      </div>
+    </header>
+
+    <section style="color: #191970" id="about">
+     <p style="text-align: center">Please Fill Out the Form Carefully</p>
+     <br>
+     <br>
+    <div class="content" ng-controller="commandeController">
+        <div class="col-md-12">
+            <table class="table table-striped table-hover table-responsive table-bordered">
+                <thead>
+                    <tr>
+                        
+                        <th>Ref#</th>
+                        <th>XXS</th>
+                        <th>XS</th>
+                        <th>S</th>
+                        <th>M</th>
+                        <th>L</th>
+                        <th>Xl</th>
+                        <th>XXL</th>
+                        <th>XXXL</th>
+                       
+                        
+                        
+                        
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="article in articles">
+                       
+                        <td>
+                            <input type="number" ng-model="article.reference" class="form-control bfh-number" placeholder="Ref#" min=0>
+                        </td>
+                        <td>
+                            <input type="number" ng-model="article.xxs" class="form-control" placeholder="size">
+                        </td>
+                        <td>
+                            <input type="number" ng-model="article.xs" class="form-control" placeholder="size">
+                        </td>
+                        <td>
+                            <input type="number" ng-model="article.s" class="form-control" placeholder="size">
+                        </td>
+
+                        <td>
+                            <input type="number" ng-model="article.m" class="form-control" placeholder="size">
+                        </td>
+                        <td>
+                            <input type="number" ng-model="article.l" class="form-control" placeholder="size">
+                        </td>
+                        <td>
+                            <input type="number" ng-model="article.xl" class="form-control" placeholder="size">
+                        </td>
+                        <td>
+                            <input type="number" ng-model="article.xxl" class="form-control" placeholder="size">
+                        </td>
+                        
+                        <td>
+                            <input type="number" ng-model="article.xxxl" class="form-control" placeholder="size">
+                        </td>
+                       
+                        
+
+                        
+                        <td>
+                            <a href ng:click="SupprimerArticle($index)"><i class="fa fa-times delete"></i></a>
+                        </td>
+                    </tr>
+                    <tr class="success">
+                        <th class="success">TOTAL</th>
+                        <td class="success">{{ XXSombreArticle() }} item(s)</td>
+                        <td class="success">{{ XSombreArticle() }} item(s)</td>
+                        <td class="success">{{ SombreArticle() }} item(s)</td>
+                        <td class="success">{{ MombreArticle() }} item(s)</td>
+                         <td class="success">{{ LombreArticle() }} item(s)</td>
+                        <td class="success">{{ XLombreArticle() }} item(s)</td>
+                        <td class="success">{{ XXLombreArticle() }} item(s)</td>
+                        <td class="success">{{ XXXLombreArticle() }} item(s)</td>
+                        
+                        <td class="success">Total:{{totalArticle()}}</td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+            <a style="background-color: #191970" href ng:click="AjouterArticle()" class="btn btn-primary">Add anoher item <i class="fa fa-plus"></i></a>
+        </div>
+    </div>
+    
+       <br>
+       <br>
+       
+    
+      <div class="container">
+        <p style= "text-align: center">
+          Please Insert your Information Below:
+        </p>
+      </div>
+      <br>
+      <br>
+       <form class="container" id="needs-validation" novalidate ng-controller = "myCtrl">
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom01">Facility Name</label>
+      <input type="text" class="form-control" id="validationCustom01" placeholder="Facility Name"  required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom02">Attn</label>
+      <input type="text" class="form-control" id="validationCustom02" placeholder="Attn"  required>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom03">Address</label>
+      <input type="text" class="form-control" id="validationCustom03" placeholder="Address" required>
+      <div class="invalid-feedback">
+        Please provide a valid address.
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationCustom03">Address</label>
+      <input type="text" class="form-control" id="validationCustom03" placeholder="Address" required>
+      <div class="invalid-feedback">
+        Please provide a valid address.
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 mb-3">
+      <label for="validationCustom03">City</label>
+      <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
+      <div class="invalid-feedback">
+        Please provide a valid city.
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 mb-3">
+      <label for="validationCustom06">Phone Number</label>
+      <input type="text" class="form-control" id="validationCustom06" placeholder="Phone number" required>
+      <div class="invalid-feedback">
+        Please provide a valid number.
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 mb-3">
+      <label for="validationCustom04">Country</label>
+      <input type="text" class="form-control" style= "color: #191970" id="validationCustom04" placeholder="Country" required>
+      <div class="invalid-feedback">
+        Please provide a valid country.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationCustom04">State</label>
+      <input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
+      <div class="invalid-feedback">
+        Please provide a valid state.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationCustom05">Zip</label>
+      <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
+      <div class="invalid-feedback">
+        Please provide a valid zip.
+      </div>
+    </div>
+    
+  </div>
+  <br>
+  <br>
+  <p><strong>Would you have a custom embroidery? Please mail this along your order form.</strong>
+    <br>
+	
+	<br>
+    <p>Please set the scale to 40 for perfect view of form in (+ more settings) and save the order in PDF, keep a copy for yourself and email us a copy.</p>
+      <a style="color: #191970" href="mailto:info@bhealthapparel.com">INFO@BHEALTHAPPAREL.COM</a>
+
+
+    <br>
+
+</p>
+<br>
+
+      
+  <button class="btn btn-primary" onclick="window.print();return false;" style="background-color: #191970" type="submit">Save Order (PDF)</button>
+
+</form>
+
+
+        
+      
+    </section>
+    
+      <section>
+      <div class="container" style="color: #191970">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading">Let's Get In Touch!</h2>
+            
+            <p>Feel Free to contact us</p>
+          </div>
+        </div>
+        <div class="row">
+          
+          <div class="col-lg-4 mr-auto text-center">
+            <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+            <p>
+              <a style="color: #191970" href="mailto:info@bhealthapparel.com">INFO@BHEALTHAPPAREL.COM</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/creative.min.js"></script>
+
+  </body>
+
+</html>
